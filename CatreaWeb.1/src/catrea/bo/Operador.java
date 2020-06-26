@@ -1,9 +1,5 @@
 package catrea.bo;
 
-/**
- *
- * @author Juan Manuel Rivera
- */
 public class Operador {
     private String dni;
     private String nombre;

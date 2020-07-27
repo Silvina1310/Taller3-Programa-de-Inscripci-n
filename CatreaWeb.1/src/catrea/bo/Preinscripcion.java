@@ -4,12 +4,8 @@ import java.util.Date;
 
 /**
  *Asocia un postulante a una carrera
-<<<<<<< HEAD
  **/
-=======
- * @author Juan Manuel Rivera
- */
->>>>>>> e96de3068a3e972f64593a33b201ac26d96c97f7
+
 public class Preinscripcion {
     private Aspirante aspirante = null;//Declara como vacio
     private Carrera carrera = null;

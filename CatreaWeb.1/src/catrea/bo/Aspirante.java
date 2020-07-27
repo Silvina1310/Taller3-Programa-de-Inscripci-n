@@ -1,7 +1,7 @@
 package catrea.bo;
 
 /**
- *bussines object. guarda informacion adentro de un paquete,aspirante, postulante, carrerra
+ *bussines object. guarda informacion dentro de un paquete,aspirante, postulante, carrera
  */
 public class Aspirante {
     private int idAspirante;
@@ -61,8 +61,6 @@ public class Aspirante {
         this.dni = dni;
     }
 
-    
-    
     public String getLocalidad() {
         return localidad;
     }

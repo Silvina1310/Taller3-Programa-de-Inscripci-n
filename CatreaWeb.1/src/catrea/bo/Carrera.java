@@ -1,5 +1,12 @@
 package catrea.bo;
 
+<<<<<<< HEAD
+=======
+/**
+ *
+ * @author Juan Manuel Rivera
+ */
+>>>>>>> e96de3068a3e972f64593a33b201ac26d96c97f7
 public class Carrera {
     private int idCarrera;
     private String nombre;

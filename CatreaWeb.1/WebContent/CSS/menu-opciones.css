@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+}
+/*CSS menu opciones*/
+
+header{
+    width: 100%;
+    margin-top: 0px;
+    height: 90px;
+    border-bottom: #81939F solid 3px;
+    color:white;
+    background-color: #6BB5E7;     
+}
+
+#titulo {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    border-top: #81939F solid 3px;
+    font-family: sans-serif;
+    margin-top: 8px; 
+}
+
+p{
+   font-size: 20px; 
+}
+
+.encabezado{
+    font-size: 20px;
+    color: #12068B;
+}
+
+.contenedor-menu-opcion{
+    margin: 5px auto 5px auto;  
+    width: 60%;
+    height: 100px;
+    background-position: center;
+    background-size: cover;
+    background-color: #BFDDF3;
+}
+
+.contenedor-button {
+    padding: 10px;
+    background: #5EA5EC;         /**#D0E2EF;**/
+    margin: 25px auto 25px auto;   
+    width: 90%;  
+    height: 100px;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.6);  
+}
+
+.primeropcion{
+	background-color: #5EA5EC;
+}
+
+.segundaopcion{
+	background-color: #5EA5EC;
+}
+
+.uno{
+	width: 95%;
+	height: 40px;
+	background-color: #CBE1F9;
+}
+
+.dos{
+	width: 95%;
+	height: 40px;
+	background-color: #CBE1F9;
+}
+
+.float-right{
+	color: white;
+	border: 3px solid #3581D5;
+	width: 60px;
+}
+
+footer{                                      
+    background-color: #6BB5E7;
+    margin-top: 320px;
+    height: 40px;
+    border-bottom: #81939F solid 3px;
+    border-top: #81939F solid 3px;
+    color: white;
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+}

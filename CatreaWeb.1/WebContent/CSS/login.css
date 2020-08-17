@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+}
+/*CSS login*/
+
+header{
+    width: 100%;
+    margin-top: 0px;
+    height: 90px;
+    border-bottom: #81939F solid 3px;
+    color:white;
+    background-color: #6BB5E7;     
+}
+
+#titulo {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    border-top: #81939F solid 3px;
+    font-family: sans-serif;
+    margin-top: 8px; 
+}
+
+p{
+   font-size: 20px; 
+}
+
+.encabezado{
+    font-size: 25px;
+    color: #12068B;
+}
+
+.contenedor-fieldset{
+    margin: 5px auto 5px auto;  
+    width: 60%;
+    background-position: center;
+    background-size: cover;
+    background-color: #BFDDF3;
+}
+
+.contenedor-login {
+    padding: 10px;
+    background: #D0E2EF;
+    margin: 25px auto 25px auto;   
+    width: 90%;  
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
+}
+
+contenedor-login:hover {
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
+}
+
+.contenedor-imagen-login {
+    width: 30%;
+    background-position: center;
+    margin: auto;
+}
+
+.contenedor-imagen-login img {
+    background-position: center;
+    margin: 0 auto;
+    margin-left: 8px;
+    margin-bottom: auto;
+    width: 90%;
+}
+
+ .form-group{
+    width: 44%;   
+    margin-bottom: 10px;   
+ }
+    
+ label{
+     font-size: 15px;
+     font-family:sans-serif;
+     color: #12068B; 
+ }
+    
+.form-control {
+    width: 110%;     
+}
+
+.contenedor-recuperar a {
+    margin-left: -5px;
+}
+
+footer{
+    background-color: #6BB5E7;
+    margin-bottom: 0px;
+    height: 40px;
+    border-bottom: #81939F solid 3px;
+    border-top: #81939F solid 3px;
+    color: white;
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: bold;
+}

@@ -12,16 +12,18 @@ import catrea.excepcion.ServicioException;
 import java.util.List;
 
 public class ManejadorPreinscripcion {
-    private AspirantesDAO dao = null;
+    private AspirantesDAO daoAspirante = null;
     private CarrerasDAO daoCarreras = null;
-    
     
     public void crearPreinscripcion(Preinscripcion preinscripcion) throws AspiranteExistenteException, ServicioException {
        try {
-            dao = new AspirantesDAO();
+    	   daoAspirante = new AspirantesDAO();
             Aspirante aspirante = preinscripcion.getAspirante();//Recuperamos los 2 objetos
             if(!estaPostulado(aspirante.getDni())) {
-                dao.altaAspirante(aspirante); 
+                PreinscripcionesDAO daoPreinscripciones = new PreinscripcionesDAO();
+                int idAspirante = daoAspirante.altaAspirante(aspirante); 
+                preinscripcion.getAspirante().setIdAspirante(idAspirante);
+                daoPreinscripciones.altaPreinscripcion(preinscripcion);
             } else {
                 throw new AspiranteExistenteException("El aspirante con dni" + aspirante.getDni() + "ya esta"
                    + "inscripto"); 
@@ -31,8 +33,19 @@ public class ManejadorPreinscripcion {
        }
     }
      
+    public void bajaPreinscripcion(int idPreinscripcion, int idAspirante) throws ServicioException {
+	    try {
+            PreinscripcionesDAO daoPreinscripciones = new PreinscripcionesDAO();
+     	   	daoAspirante = new AspirantesDAO();
+            daoPreinscripciones.darDeBajaPreinscripcion(idPreinscripcion);
+            daoAspirante.darDeBajaAspirante(idAspirante);
+	    } catch (BaseDeDatosException e) {
+	        throw new ServicioException(e.getMessage()) ;
+	    }
+	 }
+    
     private boolean estaPostulado(String dni) throws BaseDeDatosException{
-        Aspirante aspirante = dao.recuperarAspirante(dni);
+        Aspirante aspirante = daoAspirante.recuperarAspirante(dni);
         return aspirante != null;
     }
     

@@ -5,12 +5,14 @@ public class Operador {
     private String nombre;
     private String apellido;
     private String contrasenia;
+    private String mailOperador;
     
-    public Operador(String dni, String nombre, String apellido, String contrasenia) {
+    public Operador(String dni, String nombre, String apellido, String contrasenia, String mailOperador) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.contrasenia= contrasenia;
+        this.mailOperador = mailOperador;
     }
 
     public String getDni() {
@@ -43,5 +45,13 @@ public class Operador {
 
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
+    }
+    
+    public String getMailOperador() {
+        return mailOperador;
+    }
+
+    public void getMailOperador(String mail) {
+        this.mailOperador = mail;
     }
 }

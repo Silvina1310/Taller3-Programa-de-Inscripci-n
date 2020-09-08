@@ -4,8 +4,7 @@ import java.util.Date;
 
 /**
  *Asocia un postulante a una carrera
- **/
-
+ */
 public class Preinscripcion {
     private Aspirante aspirante = null;//Declara como vacio
     private Carrera carrera = null;

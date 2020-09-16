@@ -1,6 +1,7 @@
 package catrea.servicios;
 
 import java.security.SecureRandom;
+import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
@@ -13,8 +14,12 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import catrea.accesodatos.AspirantesDAO;
 import catrea.accesodatos.OperadoresDAO;
+import catrea.accesodatos.PreinscripcionesDAO;
+import catrea.bo.Operador;
 import catrea.excepcion.BaseDeDatosException;
+import catrea.excepcion.OperadorExistenteException;
 import catrea.excepcion.ServicioException;
 
 public class Operadores {
@@ -26,6 +31,34 @@ public class Operadores {
 
 	public Operadores() {
          dao = new OperadoresDAO();
+	}
+	
+	public void altaOperador(Operador operador) throws ServicioException, OperadorExistenteException {
+		try {
+			if(dao.recuperarOperador(operador.getDni()) == null) {
+				dao.altaOperador(operador);				
+			} else 
+				throw new OperadorExistenteException("Un operador con ese DNI ya existe en la Base de Datos");
+		} catch (BaseDeDatosException e) {
+			throw new ServicioException(e.getMessage());
+		}
+	}
+	
+	public List<Operador> recuperarOperadores() throws ServicioException {
+		try {
+			return dao.recuperarOperadores();
+		} catch (BaseDeDatosException e) {
+			throw new ServicioException(e.getMessage());
+		}
+	}
+	
+	public void bajaOperador(String dni) throws ServicioException {
+		try {
+            OperadoresDAO daoOperadores = new OperadoresDAO();
+            daoOperadores.darDeBajaOperador(dni);
+	    } catch (BaseDeDatosException e) {
+	        throw new ServicioException(e.getMessage()) ;
+	    }
 	}
 	
 	public void actualizarPassword(String dni, String nuevoPassword) throws ServicioException {
@@ -79,7 +112,7 @@ public class Operadores {
 
 	    return password.toString();
 	}
-    
+
     private void enviarMail(String toMail, String password) throws AddressException, MessagingException {
         String from = CATREA_WEB_MAIL;
 

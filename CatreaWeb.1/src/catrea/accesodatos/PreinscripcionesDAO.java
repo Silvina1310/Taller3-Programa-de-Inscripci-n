@@ -23,7 +23,7 @@ public class PreinscripcionesDAO extends DAO{
     private final String ALTA_PREINSCRIPCION = "INSERT INTO preinscripciones (fecha, id_carrera, "
             + "id_operador, id_aspirante) values (?, ?, ?, ?)";
     private final String CONSULTA_PREINSCRIPCION = "select pr.id_preinscripcion, pr.fecha, ca.id_carrera, "
-            + "ca.nombre, ca.duracion, op.dni, op.nombre, op.apellido, op.contrasenia, op.mail_operador, "
+            + "ca.nombre, ca.duracion, op.dni, op.nombre, op.apellido, op.contrasenia, op.mail_operador, op.rol, "
             + "asp.id_aspirante, asp.nombre, asp.apellido, asp.dni, asp.estadocivil, asp.nivelestudio, asp.localidad, "
             + "asp.telefono, asp.mail from preinscripciones as pr, carreras as ca, operadores as op, "
             + "aspirantes as asp where pr.id_carrera = ca.id_carrera and op.dni = ? and "
@@ -60,9 +60,10 @@ public class PreinscripcionesDAO extends DAO{
           while(rs.next()) {//Pregunta si hay un registro mas
                 
                 Carrera carrera = new Carrera(rs.getInt(3), rs.getString(4), rs.getInt(5));
-                Operador operador = new Operador(rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10));
-                Aspirante aspirante = new Aspirante(rs.getInt(11), rs.getString(12), rs.getString(13), rs.getString(14),
-                rs.getString(15), rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19));
+                Operador operador = new Operador(rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), 
+                		rs.getString(11));
+                Aspirante aspirante = new Aspirante(rs.getInt(12), rs.getString(13), rs.getString(14), rs.getString(15),
+                rs.getString(16), rs.getString(17), rs.getString(18), rs.getString(19), rs.getString(20));
                 java.util.Date date = new java.util.Date(rs.getDate(2).getTime());
                 Preinscripcion preinscripcion = new Preinscripcion(rs.getInt(1), date, aspirante, carrera, operador);
                 preinscripciones.add(preinscripcion);

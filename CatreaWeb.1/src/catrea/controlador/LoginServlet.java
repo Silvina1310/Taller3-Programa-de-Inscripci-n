@@ -1,8 +1,8 @@
 package catrea.controlador;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,20 +19,19 @@ import catrea.servicios.Autenticador;
  */
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private static final String ADMINISTRADOR = "administrador";
+    
     /**
      * @see HttpServlet#HttpServlet()
      */
     public LoginServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -49,11 +48,16 @@ public class LoginServlet extends HttpServlet {
 				Operador miOperador = autenticador.autenticarOperador(dni, password);
 				HttpSession session = (HttpSession)request.getSession(true);
 				session.setAttribute("operador", miOperador);
-				response.sendRedirect("menu-opciones.jsp");
+
+				if(ADMINISTRADOR.equals(miOperador.getRol())) {
+					response.sendRedirect("menu-admin.jsp");
+				} else {
+					response.sendRedirect("menu-opciones.jsp");
+				}
 			} catch (OperadorNoEncontradoException e) {
-				response.sendRedirect("error-operador-no-encontrado.html");
+				response.sendRedirect("login-operador-error.jsp");
 			} catch (ContraseniaNoEncontradaException e) {
-				response.sendRedirect("error-operador-no-encontrado.html");
+				response.sendRedirect("login-contrasenia-error.jsp");
 			} catch (ServicioException e) {
 				e.printStackTrace();
 			}

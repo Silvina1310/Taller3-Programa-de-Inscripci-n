@@ -6,13 +6,15 @@ public class Operador {
     private String apellido;
     private String contrasenia;
     private String mailOperador;
+    private String rol;
     
-    public Operador(String dni, String nombre, String apellido, String contrasenia, String mailOperador) {
+    public Operador(String dni, String nombre, String apellido, String contrasenia, String mailOperador, String rol) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.contrasenia= contrasenia;
         this.mailOperador = mailOperador;
+        this.rol = rol;
     }
 
     public String getDni() {
@@ -51,7 +53,15 @@ public class Operador {
         return mailOperador;
     }
 
-    public void getMailOperador(String mail) {
+    public void setMailOperador(String mail) {
         this.mailOperador = mail;
+    }
+    
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 }

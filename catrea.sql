@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-04-2020 a las 03:56:02
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.4
+-- Tiempo de generación: 16-09-2020 a las 17:51:14
+-- Versión del servidor: 10.4.8-MariaDB
+-- Versión de PHP: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bd_catrea`
+-- Base de datos: `catrea`
 --
 
 -- --------------------------------------------------------
@@ -44,13 +45,14 @@ CREATE TABLE `aspirantes` (
 --
 
 INSERT INTO `aspirantes` (`id_aspirante`, `nombre`, `apellido`, `dni`, `estadocivil`, `nivelestudio`, `localidad`, `telefono`, `mail`) VALUES
-(18, 'flor', 'lopez', '39234567', 'soltero', 'secundario', 'caba', '1123344567', 'florlopes@gmail.com'),
-(19, 'francisco', 'malamud', '40987654', 'soltero', 'primario', 'caba', '1123567833', 'francisco@gmail.com'),
-(20, 'jesica', 'alvarado', '43789000', 'soltero', 'primario', 'caba', '1190578833', 'jesica@gmail.com'),
-(21, 'carlos', 'conrado', '42567890', 'soltero', 'primario', 'caba', '1120007878', 'carlos@gmail.com'),
-(22, 'renzo', 'fabro', '43000893', 'soltero', 'secundario', 'san isidro', '1190907878', 'fabro@gmail.com'),
-(23, 'bruno', 'richi', '42345621', 'soltero', 'secundario', 'caba', '1178111122', 'bruno@gmail.com'),
-(24, 'analia', 'terri', '40987111', 'soltero', 'secundario', 'lanus', '1188992233', 'analia@gmail.com');
+(25, 'Ariel', 'Riscica', '39185121', 'soltero', 'secundarioCompleto', 'CABA', '1155336699', 'arielriscica@gmail.com'),
+(26, 'Ana', 'Lopez', '33456896', 'casado', 'secundarioIncompleto', 'CABA', '1163635656', 'analopez@gmail.com'),
+(27, 'Mara', 'Cabrera', '43082123', 'soltero', 'secundarioCompleto', 'CABA', '1199554411', 'maracabrera@gmail.com'),
+(28, 'Diego', 'Aranda', '40555666', 'soltero', 'secundarioIncompleto', 'Merlo', '1175459572', 'diegomerlo@gmail.com'),
+(29, 'Florencia', 'Malhamud', '41235687', 'soltero', 'secundarioCompleto', 'CABA', '1145632588', 'florenciamalhamud@gmail.com'),
+(30, 'Roman', 'Toledo', '42123236', 'soltero', 'secundarioIncompleto', 'Moron', '1189562321', 'romantoledo@gmail.com'),
+(31, 'Roque', 'Gonzalez', '43555666', 'soltero', 'secundarioCompleto', 'Ciudadela', '1135689471', 'roquegonzalez@gmail.com'),
+(32, 'Abel ', 'Leis', '42222333', 'soltero', 'secundarioIncompleto', 'CABA', '1144556677', 'rodrigoleis@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -83,17 +85,20 @@ CREATE TABLE `operadores` (
   `dni` int(20) NOT NULL,
   `nombre` varchar(30) NOT NULL,
   `apellido` varchar(30) NOT NULL,
-  `contrasenia` varchar(30) NOT NULL
+  `contrasenia` varchar(30) NOT NULL,
+  `mail_operador` varchar(100) NOT NULL,
+  `rol` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `operadores`
 --
 
-INSERT INTO `operadores` (`dni`, `nombre`, `apellido`, `contrasenia`) VALUES
-(22425636, 'silvina', 'paez', 'Espinosa'),
-(33240752, 'juan', 'rivera', 'Espinosa'),
-(33391222, 'estefania', 'ucedo', 'Espinosa');
+INSERT INTO `operadores` (`dni`, `nombre`, `apellido`, `contrasenia`, `mail_operador`, `rol`) VALUES
+(12345678, 'Administrador', 'Administrador', 'administrador', 's.i.l.v.i.n.a.xiii@gmail.com', 'administrador'),
+(22425636, 'silvina', 'paez', 'sil13', 'almabru1310@gmail.com', 'operador'),
+(33240752, 'juan', 'rivera', 'Espinosa', 'juanm2587@gmail.com', 'operador'),
+(33391222, 'estefania', 'ucedo', 'Espinosa', 'ucedoestefi@gmail.com ', 'operador');
 
 -- --------------------------------------------------------
 
@@ -114,13 +119,14 @@ CREATE TABLE `preinscripciones` (
 --
 
 INSERT INTO `preinscripciones` (`id_preinscripcion`, `fecha`, `id_carrera`, `id_operador`, `id_aspirante`) VALUES
-(3, '2019-11-17', 8, 94847474, 18),
-(4, '2019-11-18', 8, 22425636, 19),
-(5, '2019-11-18', 9, 22425636, 20),
-(6, '2019-11-18', 9, 22425636, 21),
-(7, '2019-11-18', 10, 22425636, 23),
-(8, '2019-11-18', 10, 22425636, 22),
-(9, '2019-11-18', 10, 22425636, 24);
+(10, '2020-09-09', 10, 22425636, 25),
+(11, '2020-09-09', 8, 22425636, 26),
+(12, '2020-09-10', 10, 22425636, 27),
+(13, '2020-09-10', 9, 22425636, 28),
+(14, '2020-09-10', 9, 22425636, 29),
+(15, '2020-09-10', 8, 22425636, 30),
+(16, '2020-09-10', 10, 22425636, 31),
+(17, '2020-09-10', 8, 22425636, 32);
 
 --
 -- Índices para tablas volcadas
@@ -164,7 +170,7 @@ ALTER TABLE `preinscripciones`
 -- AUTO_INCREMENT de la tabla `aspirantes`
 --
 ALTER TABLE `aspirantes`
-  MODIFY `id_aspirante` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_aspirante` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `carreras`
@@ -176,7 +182,7 @@ ALTER TABLE `carreras`
 -- AUTO_INCREMENT de la tabla `preinscripciones`
 --
 ALTER TABLE `preinscripciones`
-  MODIFY `id_preinscripcion` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_preinscripcion` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Restricciones para tablas volcadas

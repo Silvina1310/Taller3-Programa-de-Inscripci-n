@@ -1,4 +1,5 @@
-/*********Acá CSS común a todo*********/
+/************** CSS común a todos *************/
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +14,7 @@ body {
 header{
     width: 100%;
     margin-top: 0px;
-    height: 90px;
+    height: 80px;         
     border-bottom: #81939F solid 3px;
     color:white;
     background-color: #6BB5E7;     
@@ -29,7 +30,7 @@ header{
 }
 
 p{
-   font-size: 20px;
+   font-size: 21px;    
    text-align: center;     
    }
    
@@ -40,7 +41,7 @@ footer{
     position: absolute; 
     margin-bottom: 0;
     width: 100%;
-    height: 40px;
+    height: 35px;                     
     border-top: #81939F solid 3px;
     color: white;
     font-size: 15px;
@@ -48,16 +49,19 @@ footer{
     font-weight: bold;
 }
 
-/*************CSS Login*************/
 
-.container1 {
-    margin: 0 auto;
+/************* CSS Login **************/
+
+.container {
+    margin: auto;
+    padding-top: 10px;
     text-align: center;
     width: 93%;
     height: 490px;
     clear: both; 
     font-size: 30px;     
     color: #12068B;
+    background-position: center;
 }
 
 .encabezado{
@@ -65,7 +69,7 @@ footer{
 }
 
 .contenedor-fieldset{
-    margin: 5px auto 5px auto;     /*margin: 5px auto 5px auto;*/
+    margin: 5px auto 5px auto;    
     width: 100%; 
     background-position: center;
     background-size: cover;
@@ -74,9 +78,8 @@ footer{
 
 .contenedor-login {
     background: #D0E2EF;
-    margin: 25px auto 25px auto;     /*margin: 25px auto 25px auto; */
-    width: 80%;       /*90*/
-    background-position: center;
+    margin: 25px auto 25px auto;     
+    width: 80%;       
     background-size: cover;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
 }
@@ -90,13 +93,13 @@ footer{
 .contenedor-imagen-login {
     width: 50%;
     background-position: center;
-    margin: auto;
+    margin-left: 75px;    
 }
 
 .contenedor-imagen-login img {
     background-position: center;
     margin: 0 auto;
-    margin-left: 8px;
+    margin-left: 25px;
     margin-bottom: auto;
     width: 70%;  
 }
@@ -106,13 +109,14 @@ footer{
 }
 
 .form-group{   
-   width: 120%;    /*width: 145%;*/
-   margin-left: 65px;    /*margin-left: 10px*/
+   width: 100%;    
+   margin-left: 50px;    
    margin-bottom: 10px; 
 }
 
 label{  
-    margin-left: 40px;
+    margin-left: 10px;
+    background-position:left;
     font-size: 15px;
     font-family:sans-serif;
     color: #12068B;
@@ -131,13 +135,17 @@ label{
     flex-grow: 1;
 }
 
-/*************CSS Error Login Operador*************/
+
+/************* CSS Error Login Operador *************/
+
+.container-logOpError {
+	margin-left: 400px;
+}
 
 .contenedor-login-error-operador {
     margin-bottom: 350px;  
     background: #D0E2EF;                        
-    width: 35%;           
-    font-size: 8px; 
+    width: 60%;           
     font-family:sans-serif;
     text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
@@ -154,12 +162,17 @@ label{
     font-family: sans-serif;
 }
 
-/*************CSS Error Login Contraseña*************/
+
+/************* CSS Error Login Contraseña *************/
+
+.container-logContError {
+	margin-left: 400px;
+}
 
 .contenedor-login-error-contrasenia {
-    margin-bottom: 350px;
+    margin-bottom: 358px;     
     background: #D0E2EF;                        
-    width: 35%;           
+    width: 60%;           
     font-family:sans-serif;
     font-size: 8px;    
     text-align: center;
@@ -177,13 +190,18 @@ label{
     font-family: sans-serif;
 }
 
-/*************CSS Menú Opciones*************/
+
+/************* CSS Menú de Opciones *************/
+
+.contenedor1{
+	margin-right: 85px;
+}
 
 .contenedor-menu-opcion{
     margin: 5px auto 5px auto;  
-    margin-bottom: 325px;
+    margin-bottom: 250px;                
     width: 60%;
-    height: 100px;
+    height: 180px;                       
     background-position: center;
     background-size: cover;
     background-color: #BFDDF3;
@@ -194,7 +212,7 @@ label{
     background: #5EA5EC;       
     margin: 25px auto 25px auto;   
     width: 90%;  
-    height: 100px;
+    height: 160px;
     background-position: center;
     background-size: cover;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.6);  
@@ -206,20 +224,35 @@ label{
 
 .segundaopcion{
 	background-color: #5EA5EC;
+	height:51px;
+}
+
+.tercerapcion{
+	background-color: #5EA5EC;
+	height:70px;
 }
 
 .uno{
 	width: 95%;
 	height: 40px;
 	background-color: #CBE1F9;
-        margin-left: 15px;
+    margin-left: 15px;
 }
 
 .dos{
 	width: 95%;
 	height: 40px;
 	background-color: #CBE1F9;
-        margin-left: 15px;
+    margin-left: 15px;
+    margin-bottom: 0px;
+}
+
+.tres{
+	width: 95%;
+	height: 40px;
+	margin-top: -30px;
+	background-color: #CBE1F9;
+    margin-left: 15px;
 }
 
 .float-right{
@@ -228,11 +261,12 @@ label{
 	width: 60px;
 }
 
-/*************CSS Consulta Preinscripciones*************/
+
+/************* CSS Consulta Preinscripciones *************/
 
 .content {
     width:100%;
-    height: 560px;
+    height: 650px;
     background-color: white;
     font-family: sans-serif;
   }
@@ -271,24 +305,34 @@ tr:nth-child(even) {
     margin-left: 15px;
 }
 
-/*************CSS Formulario*************/
 
-.contenedor-fieldset{
-    margin: 20px auto 20px auto;    
-    width: 40%;
+/************* CSS Formulario *************/
+
+.contenedor1 {
+    margin: 20px auto 20px auto; 
+	text-align: left;
+	
+	width:100%;    /*ghoy1409*/
+    height: 480px;    /*ghoy1409*/
+	
+	
+}
+
+.contenedor-fieldset{                
+    width: 35%;     
     background-position: center;
     background-size: cover;
     background-color: #BFDDF3;
 }
 
 legend {
-    margin-left: 30px;
+    margin-left: 145px;
     color: #12068B;
     font-size: 20px;
 }
 
 .form-login {
-    width: 130%;    
+    width: 150%;         
     font-size: 1em;   
 }
 
@@ -309,16 +353,41 @@ fieldset:hover {
 .contenedor-input {
     width: 60%;     
     margin-bottom: 10px;  
-    margin-left: -30px;
+    margin-left: 20px;
 }
 
-    
-/*************CSS Confirmación Formulario*************/
+.contenedor-input3 {
+	width: 82%;
+	margin-left: 20px;
+	height: 59px;
+}
+
+.btn-primary {
+	background-position: center;
+	margin-top:-5px;
+}
+
+.btn-primary a{
+	background-position: center;
+	margin-top: -20px;
+}
+
+.guardar {
+	margin-top:-30px;
+	margin-bottom: 30px;
+}
+
+
+/************* CSS Confirmación Formulario *************/
+
+.contenedor3 {
+	margin-left: 400px;  
+	}
 
 .contenedor-confirmacion-formulario {
     margin-bottom: 358px;  
     background: #D0E2EF;                        
-    width: 35%;            
+    width: 60%;            
     font-family:sans-serif;
     font-size: 8px;    
     text-align: center;
@@ -333,7 +402,7 @@ fieldset:hover {
 }
 
 
-/*************CSS Confirmación contraseña**************/
+/************* CSS Confirmación contraseña **************/
 
 .contenedor-confirmacion {
     margin-bottom: 358px;
@@ -358,5 +427,206 @@ fieldset:hover {
 }
 
 
+/************* CSS password-modificado-exitosamente **************/
+
+.container4 {
+	margin-left: 400px;
+}
+
+.contenedor-confirmacion {
+	font-size: 1.5em; 
+    margin-bottom: 358px;  
+    background: #D0E2EF;                        
+    width: 60%;            
+    font-family:sans-serif;
+    font-size: 10px;    
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
+}
 
 
+/************* CSS Recuperar contraseña *************/
+
+.container5 {
+	margin: auto;
+	margin-top: 20px;
+    text-align: center; 
+    width: 80%;                 
+    height: 480px;
+    font-family:sans-serif;
+    font-size: 1.5em;    
+}
+
+.contenedor-contrasenia {
+	background: #D0E2EF;   
+    margin: auto;  
+    background-position: center;
+    text-align: center;                     
+    width: 50%; 
+    height: 65px;  
+    font-family:sans-serif;
+    font-size: 1.5em;    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
+}   
+    
+.contenedor-input-dni{
+	margin-bottom: 23px;
+	background-position: center;
+	width: 100%;
+}
+
+.col-sm-10{
+	margin-left: -14px;
+}
+    
+
+/************* CSS Cambiar Contraseña *************/
+
+.containerCamContr {
+    margin: auto;
+	margin-top: 20px;
+   
+    text-align: center; 
+    width: 80%;                 
+    height: 480px;
+    font-family:sans-serif;
+    font-size: 1.5em;      
+}
+
+.contenedor-contrasenia2 {
+	background: #D0E2EF;   
+    margin: auto;    
+    background-position: center;
+    text-align: center;                     
+    width: 50%; 
+    height: 65px;
+    font-family:sans-serif;
+    font-size: 1.5em;    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.6);
+}   
+    
+.contenedor-input-pass{
+	margin-bottom: 23px;
+	background-position: center;
+	width: 100%;
+}
+
+
+/*************CSS Administrador *************/
+
+
+/*************CSS menu-admin *************/
+
+.unoAdmin{
+	width: 95%;
+	height: 35px;
+	background-color: #CBE1F9;
+    margin-left: 15px;
+    margin-bottom: 1px;
+}
+
+.dosAdmin{
+	width: 95%;
+	height: 35px;
+	background-color: #CBE1F9;
+    margin-left: 15px;
+    margin-bottom: 1px;
+}
+
+.tresAdmin{
+	width: 95%;
+	height: 35px;
+	background-color: #CBE1F9;
+    margin-left: 15px;
+    margin-bottom: 1px;
+}
+
+.cuatroAdmin{
+	width: 95%;
+	height: 35px;
+	background-color: #CBE1F9;
+    margin-left: 15px;
+    margin-bottom: 1px;
+}
+
+
+/************* Media Queries *************/
+
+ @media screen and (min-width: 350px) and (max-width: 480px){
+ 
+p {
+   	font-size: 15px;    
+   	text-align: center; 
+   }	
+.contenedor-fieldset{
+    width:95%; 
+}
+.contenedor-imagen-login {
+    width: 50%;
+    display:block;
+    margin:auto;
+}
+footer{
+	font-size: 10px;
+}
+{}
+
+
+@media screen and (min-width: 480px) and (max-width: 768px){
+      
+ p {
+   	   font-size: 16px;    
+   	   text-align: center; 
+   }
+ .container {
+    margin: auto;
+    padding-top: 10px;
+    text-align: center;
+    width: 100%;     
+    height: 450px;                  
+    clear: both; 
+    font-size: 25px;      
+    color: #12068B;
+    background-position: center;
+}
+ .contenedor-fieldset{
+    width: 80%; 
+}
+.contenedor-imagen-login {
+    width: 40%;
+   display:block;
+   margin:auto;
+}
+
+footer{
+	font-size: 13px;
+	height: 30px;
+}
+}
+
+
+/************* Navegadores *************/
+
+@-ms-viewport{width:device-with}
+@-webkit-viewport{width:device-with}
+@-moz-viewport{width:device-with}
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+ 
+ 
+ 
+
+
+	

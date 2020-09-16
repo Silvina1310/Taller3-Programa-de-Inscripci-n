@@ -6,10 +6,7 @@
 <%@page import="java.util.List"%>
 
 <%
-	boolean isLoggedIn = (session != null && session.getAttribute("operador") != null);
-	if(!isLoggedIn) {
-		response.sendRedirect("/CatreaWeb/login.jsp");
-	}
+	
 
    response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0"); 
    response.addHeader("Pragma", "no-cache"); 
@@ -28,15 +25,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="./CSS/estilos.css" />
-    <title>Formulario</title>
+    <title>Alta operadores</title>
 </head>
 
 <body>
-    <header>  
-    	<div class="operador">
-    		<%Operador miOperador = (Operador)session.getAttribute("operador");%>
-    	</div>
-    	    
+    <header>   	    
         <div id="titulo">   
         <p>CATREA - Centro de Atención Telefónica para el Reclutamiento en el Ejército Argentino</p>                  
         <p>0800-555-555</p>
@@ -44,67 +37,41 @@
     </header>
     
     <div class="contenedor1">
-	    
-	    <form id="altaForm" action="/CatreaWeb/altaAspirante" method="post" class="contenedor-fieldset" onsubmit="validarCamposFormulario(event)">
+	    <p class="encabezado">Formulario de Alta Usuarios</p>
+	    <form id="altaForm" action="/CatreaWeb/altaOperador" method="post" class="contenedor-fieldset" onsubmit="validarCamposFormularioOperador(event)">
 	    
 	        <div class="contenedor">    
 	            
 	            <fieldset>
 	                <legend>Complete los datos</legend>
 	                <div class="contenedor-input">
-	                    <input class="form-login" placeholder="Nombre" name="NOMBRE" id="nombre" type="text" />
+	                    <input class="form-login" placeholder="DNI" name="dni" type="dni" size="10" id="dni"maxlength="9" />
 	                </div>
 	                <div class="contenedor-input">
-	                    <input class="form-login" placeholder="Apellido" name="APELLIDO" id="apellido" type="text" />
+	                    <input class="form-login" placeholder="Nombre" name="nombre" id="nombre" type="text" />
 	                </div>
 	                <div class="contenedor-input">
-	                    <input class="form-login" placeholder="DNI" name="DNI" type="text" size="10" id="dni"maxlength="9" />
+	                    <input class="form-login" placeholder="Apellido" name="apellido" id="apellido" type="text" />
 	                </div>
 	                <div class="contenedor-input">
-	                    <input class="form-login" placeholder="Localidad" name="LOCALIDAD" type="text" id="localidad"/>
+	                    <input class="form-login" placeholder="Contraseña" name="contrasenia" id="contrasenia" type="text"/>
+	                </div>
+	              	<div class="contenedor-input">
+	                    <input class="form-login" placeholder="E-mail" name="email" type="text" id="email"/>
 	                </div>
 	                <div class="contenedor-input">
-	                <label>Estado civil</label><br>
-	                    <input type="radio" name="ESTADOCIVIL" id="cbox2" value="soltero" checked="checked"> <label for="cbox2">Soltero</label><br>
-	                	<input type="radio" name="ESTADOCIVIL" id="cbox3" value="casado"> <label for="cbox3">Casado</label>
+	                    <input type="radio" name="rol" id="cbox2" value="administrador" > <label for="cbox2">Administrador</label><br>
+	                    <input type="radio" name="rol" id="cbox3" value="operador" checked="checked"><label for="cbox3">Operador</label>
 	                </div>
-	                <div class="contenedor-input3">
-	                    <label for="seleccionar">Nivel de estudio</label>
-	                    <select id="nivelEstudio" class="form-control" name="NIVELESTUDIO">
-		                    <option value="sinSeleccion" selected>Seleccionar...</option>
-		                    <option value="secundarioCompleto">Secundario completo</option>
-		                    <option value="secundarioIncompleto">Secundario incompleto</option>
-	                    </select>
-	                </div>
-	                <div class="contenedor-input">
-	                    <input class="form-login" placeholder="E-mail" name="E-MAIL" type="text" id="email"/>
-	                </div>
-	                <div class="contenedor-input">
-	                    <input class="form-login" placeholder="Teléfono" name="TELEFONO" type="number" id="telefono"/>
-	                </div>
-	                <div class="form-group col-md-4">
-	                    <label for="seleccionar">Carreras Disponibles</label>
-	                    <select id="carerraDisponible" class="form-control" name="CARRERADISPONIBLE">
-		                    <option value="-1" selected>Seleccionar...</option>
-		                    <%
-		                    	for(Carrera c : listaCarreras) {
-		                    %>
-		                    	<option value="<%=c.getIdCarrera() %>"><%=c.getNombre()%></option>
-		                    <%	
-		                    	}
-		                    %>
-	                    </select>   
-	                </div>
+	                
 	            </fieldset>
 	        </div>
 	        <div class="guardar">
 	        	<button type="submit" name="enviar" value="Guardar" class="btn btn-primary float-right">
 	        	<a>Guardar</a></button><br>
 	        	<button type="submit" class="btn btn-primary float-left">
-	            <a href="menu-opciones.jsp">Volver</a></button>
-	            
-	            
-	            
+	            <a href="menu-admin.jsp">Volver</a></button>
+	            	            
 	        </div> 
 	    </form>
     </div>

@@ -20,7 +20,7 @@ public class Autenticador {
             if(operador.getContrasenia().equals(contrasenia)) {
                 return operador;
             }   else {
-                throw new ContraseniaNoEncontradaException("La contraseÃ±a es incorrecta");
+                throw new ContraseniaNoEncontradaException("La contraseña es incorrecta");
             } 
         } else {
             throw new OperadorNoEncontradoException("El usuario" + dni + "no fue encontrado");

@@ -7,16 +7,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.mysql.jdbc.Statement;
+
 public class AspirantesDAO extends DAO {
     private final String ALTA_ASPIRANTE = "INSERT INTO aspirantes (nombre, apellido, dni, estadocivil, nivelestudio,"
         + "localidad, mail, telefono) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     private final String CONSULTA_ASPIRANTE = "Select * from aspirantes where dni = ?";
+    private final String BAJA_ASPIRANTE = "DELETE FROM aspirantes WHERE id_aspirante = ?;";
     
-    public void altaAspirante(Aspirante aspirante) throws BaseDeDatosException {
+    public int altaAspirante(Aspirante aspirante) throws BaseDeDatosException {
         Connection conn = obtenerConexion();
         PreparedStatement prsmt = null;
         try {
-          prsmt = conn.prepareStatement(ALTA_ASPIRANTE);
+          prsmt = conn.prepareStatement(ALTA_ASPIRANTE, Statement.RETURN_GENERATED_KEYS);
           prsmt.setString(1, aspirante.getNombre());
           prsmt.setString(2, aspirante.getApellido());
           prsmt.setString(3, aspirante.getDni());
@@ -26,7 +29,13 @@ public class AspirantesDAO extends DAO {
           prsmt.setString(7, aspirante.getMail());
           prsmt.setString(8, aspirante.getTelefono());
           prsmt.execute();
+          ResultSet resultSet = prsmt.getGeneratedKeys();
+          resultSet.next();
+          int idGeneratedId = resultSet.getInt(1);
           cerrarConexion(conn);
+          
+          return idGeneratedId;
+
         } catch (SQLException e) {
             throw new BaseDeDatosException("Error en el alta de aspirantes: "+ e.getMessage());
         }
@@ -50,5 +59,19 @@ public class AspirantesDAO extends DAO {
         }
         cerrarConexion(conn);
         return aspirante;
+    }
+    
+    public void darDeBajaAspirante(int idAspirante) throws BaseDeDatosException {
+        Connection conn = obtenerConexion();
+        PreparedStatement prsmt = null;
+        
+        try {
+          prsmt = conn.prepareStatement(BAJA_ASPIRANTE);
+          prsmt.setInt(1, idAspirante);
+          prsmt.execute();
+        } catch (SQLException e) {
+            throw new BaseDeDatosException("Error en el borrado de aspirante: "+ e.getMessage());
+        }
+        cerrarConexion(conn);
     }
 } 

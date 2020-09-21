@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%
+<%@page import="catrea.bo.Operador"%>
+<% 
+	Operador miOperador = (Operador)session.getAttribute("operador");
    response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0"); 
    response.addHeader("Pragma", "no-cache"); 
    response.addDateHeader ("Expires", 0);
@@ -14,34 +14,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="./CSS/estilos.css" />
-    <title>Error conexi髇 base de datos</title>
+    <title>Error conexi贸n base de datos</title>
 </head>
 <body>
     <header>      
         <div id="titulo">   
-        <p>CATREA - Centro de Atenci髇 Telef髇ica para el Reclutamiento en el Ej閞cito Argentino</p>                  
+        <p>CATREA - Centro de Atenci贸n Telef贸nica para el Reclutamiento en el Ej茅rcito Argentino</p>                  
         <p>0800-555-555</p>
         </div> 
     </header>
 
-	<div class="container">
+	<div class="container4">
 	    
-        <form action="conexion-bd-error.jsp" method="post"></form>
-        <div class="contenedor-conexion-bd-error-">
-            <a href="login.jsp">
-                <p>No se ha podido realizar la conexi髇 a la base de datos</p>
-            </a>
-            <div>
-                <button type="submit" class="btn btn-primary float-right"><a href="login.jsp">
-                    Volver</a></button>
-            </div>
-        </div>
+        <form action="conexion-bd-error.jsp" method="post">
+	        <div class="contenedor-confirmacion">
+	            <a href="login.jsp">
+	                <p>No se ha podido realizar la conexi贸n a la base de datos</p>
+	            </a>
+	            <div>
+	                <button type="submit" class="btn btn-primary float-right"><a href="login.jsp">
+	                    Volver</a></button>
+	            </div>
+	        </div>
         </form>
 	   
     </div>
     
     <footer>
-        Materia: Taller de Desarrollo e Implementaci锟絥 | Prof. Lic. Mariano Trigila | Alumnos: Ucedo-Rivera-Paez
+        Materia: Taller de Desarrollo e Implementaci贸n | Prof. Lic. Mariano Trigila | Alumnos: Ucedo-Rivera-Paez
     </footer>
 </body>
 </html>

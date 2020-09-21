@@ -1,7 +1,7 @@
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="catrea.bo.Operador"%>
+<% 
+	Operador miOperador = (Operador)session.getAttribute("operador");
    response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0"); 
    response.addHeader("Pragma", "no-cache"); 
    response.addDateHeader ("Expires", 0);
@@ -19,29 +19,28 @@
 <body>
     <header>      
         <div id="titulo">   
-        <p>CATREA - Centro de Atención Telefónica para el Reclutamiento en el Ejército Argentino</p>                  
+        <p>CATREA - Centro de AtenciÃ³n TelefÃ³nica para el Reclutamiento en el EjÃ©rcito Argentino</p>                  
         <p>0800-555-555</p>
         </div> 
     </header>
 
-	<div class="container">
+	<div class="container4">
 	    
-        <form action="conexion-bd-error.jsp" method="post"></form>
-        <div class="contenedor-conexion-bd-error-">
-            <a href="login.jsp">
-                <p>Un aspirante con el DNI ingresado ya existe en la Base de Datos</p>
-            </a>
-            <div>
-                <button type="submit" class="btn btn-primary float-right"><a href="formulario.jsp">
-                    Volver</a></button>
-            </div>
-        </div>
+        <form action="conexion-bd-error.jsp" method="post">
+	        <div class="contenedor-confirmacion">
+	            <a href="login.jsp">
+	                <p>Un aspirante con el DNI ingresado ya existe en la Base de Datos</p>
+	            </a>
+	            <div>
+	                <button type="submit" class="btn btn-primary float-right"><a href="menu-opciones.jsp">
+	                    Volver</a></button>
+	            </div>
+	        </div>
         </form>
-	   
     </div>
     
     <footer>
-        Materia: Taller de Desarrollo e Implementaciï¿½n | Prof. Lic. Mariano Trigila | Alumnos: Ucedo-Rivera-Paez
+        Materia: Taller de Desarrollo e ImplementaciÃ³n | Prof. Lic. Mariano Trigila | Alumnos: Ucedo-Rivera-Paez
     </footer>
 </body>
 </html>

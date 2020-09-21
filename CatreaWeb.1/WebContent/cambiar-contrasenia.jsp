@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="catrea.bo.Operador"%>
 <%
+	Operador miOperador = (Operador)session.getAttribute("operador");
    response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0"); 
    response.addHeader("Pragma", "no-cache"); 
    response.addDateHeader ("Expires", 0);
@@ -20,7 +22,7 @@
 	<header>
 		<div id="titulo">
 			<p>CATREA - Centro de Atención Telefónica para el Reclutamiento	en el Ejército Argentino</p>
-			<p>0800-555-5555</p>
+			<p>0800-999-3537</p>
 		</div>
 	</header>
 
@@ -40,12 +42,19 @@
 					<button type="submit" class="btn btn-primary float-left">Enviar</button>
 				</div>
 				
-				<div>
-					<button type="submit" class="btn btn-primary float-right">
-						<a href="login.jsp"> Volver</a>
-					</button>
-				
-				</div>
+				<%
+	   			if(miOperador.getRol().equals("administrador")) {	
+	   		%>
+	   		  <div>
+	        	<button type="submit" class="btn btn-primary float-right"><a href="menu-admin.jsp">
+	            	Volver</a></button>
+	        </div> 		
+	   		<%	} else { %>
+		   <div>
+	        	<button type="submit" class="btn btn-primary float-right"><a href="menu-opciones.jsp">
+	            	Volver</a></button>
+	        </div>
+	        <% } %>
 			</div>
 		</form>
 	</div>	

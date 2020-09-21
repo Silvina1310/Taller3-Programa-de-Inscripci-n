@@ -59,7 +59,7 @@ public class LoginServlet extends HttpServlet {
 			} catch (ContraseniaNoEncontradaException e) {
 				response.sendRedirect("login-contrasenia-error.jsp");
 			} catch (ServicioException e) {
-				e.printStackTrace();
+				response.sendRedirect("conexion-bd-error.jsp");
 			}
 		}
 	}

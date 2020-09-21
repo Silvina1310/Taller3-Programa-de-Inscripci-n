@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%
+<%@page import="catrea.bo.Operador"%>
+<% 
+	Operador miOperador = (Operador)session.getAttribute("operador");
    response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0"); 
    response.addHeader("Pragma", "no-cache"); 
    response.addDateHeader ("Expires", 0);
@@ -19,7 +19,7 @@
 <body>
     <header>      
         <div id="titulo">   
-        <p>CATREA - Centro de Atenci�n Telef�nica para el Reclutamiento en el Ej�rcito Argentino</p>                
+        <p>CATREA - Centro de Atención Telefónica para el Reclutamiento en el Ejército Argentino</p>                
         <p>0800-555-555</p>
         </div> 
     </header>
@@ -41,7 +41,7 @@
     </div>
     
     <footer>
-        Materia: Taller de Desarrollo e Implementaci�n | Prof. Lic. Mariano Trigila | Alumnos: Ucedo-Rivera-Paez
+        Materia: Taller de Desarrollo e Implementaciï¿½n | Prof. Lic. Mariano Trigila | Alumnos: Ucedo-Rivera-Paez
     </footer>
 </body>
 </html>

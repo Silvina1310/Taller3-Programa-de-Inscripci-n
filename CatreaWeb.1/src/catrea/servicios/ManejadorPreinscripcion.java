@@ -55,11 +55,11 @@ public class ManejadorPreinscripcion {
         return carreras;
     }
     
-    public List<Preinscripcion> recuperarPreinscripcionesPorOperador(String id) throws ServicioException{
+    public List<Preinscripcion> recuperarPreinscripcionesPorOperador(String dni) throws ServicioException{
         try{
             PreinscripcionesDAO dao = new PreinscripcionesDAO();
             List <Preinscripcion> preinscripciones = null;
-            preinscripciones = dao.recuperarPreinscripcionesPorOperador(id);
+            preinscripciones = dao.recuperarPreinscripcionesPorOperador(dni);
             return preinscripciones;
         }catch(BaseDeDatosException e) {
             throw new ServicioException(e.getMessage()) ;
